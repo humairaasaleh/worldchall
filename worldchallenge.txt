@@ -1,0 +1,60 @@
+#1
+SELECT COUNT(countrycode) 
+FROM city WHERE countrycode='USA';
+
+#2
+SELECT Population, LifeExpectancy FROM country WHERE Name='Argentina';
+
+#3
+SELECT Name, LifeExpectancy FROM country WHERE LifeExpectancy IS NOT NULL ORDER BY LifeExpectancy DESC LIMIT 1;
+
+#4
+SELECT c.name, co.name FROM city c JOIN country co ON co.capital=c.ID WHERE co.name='Spain' ;
+
+#5
+SELECT co.name, cl.language FROM countrylanguage cl JOIN country co ON co.Code=cl.CountryCode WHERE co.Region='Southeast Asia';
+
+#6 
+SELECT Name FROM city WHERE Name LIKE 'F%' LIMIT 25;
+
+#7
+SELECT COUNT(Countrycode) FROM city c JOIN country co ON co.Code=c.CountryCode WHERE co.code='CHN';
+
+#8
+SELECT Name, population FROM city WHERE population IS NOT NULL ORDER BY population ASC LIMIT 1;
+
+#9
+SELECT COUNT(Name) FROM country;
+
+#10
+SELECT Name, SurfaceArea FROM country WHERE SurfaceArea IS NOT NULL ORDER BY SurfaceArea DESC LIMIT 10;
+
+#11
+SELECT c.name, c.population FROM city c JOIN country co ON co.Code=c.CountryCode WHERE co.code='JPN' ORDER BY population DESC LIMIT 5;
+
+#12
+SELECT code, Name FROM country WHERE HeadOfState='Elisabeth II';
+
+#13
+SELECT Name FROM country WHERE Population!=0 ORDER BY Population/SurfaceArea DESC LIMIT 10 ; 
+
+#14
+SELECT Language FROM countrylanguage GROUP BY language HAVING COUNT(language)=1 ; 
+
+#15
+SELECT Name, GNP FROM country ORDER BY GNP DESC LIMIT 10;
+
+#16 not finished
+SELECT co.name, cl.language FROM countrylanguage cl JOIN country co ON co.Code=cl.CountryCode GROUP BY cl.language ORDER BY COUNT(co.name) DESC;
+
+#17
+SELECT co.name, cl.language, cl.percentage FROM countrylanguage cl JOIN country co ON co.Code=cl.CountryCode WHERE cl.language ='German' AND cl.percentage>50 ;
+
+#18
+SELECT Name FROM country WHERE LifeExpectancy IS NOT NULL ORDER BY LifeExpectancy ASC LIMIT 1; 
+
+#19
+SELECT GovernmentForm FROM country GROUP BY GovernmentForm ORDER BY COUNT(GovernmentForm) DESC LIMIT 3;
+
+#20
+
